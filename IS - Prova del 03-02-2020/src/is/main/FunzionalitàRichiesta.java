@@ -78,26 +78,22 @@ public class FunzionalitàRichiesta {
 			Assegnazione assegnazione1 = DBManager.assI.create(new Assegnazione(elaborato2, studente2));
 			Assegnazione assegnazione2 = DBManager.assI.create(new Assegnazione(elaborato3, studente3));
 			Assegnazione assegnazione3 = DBManager.assI.create(new Assegnazione(elaborato4, studente4));
-			Assegnazione assegnazione4 = DBManager.assI.create(new Assegnazione(elaborato5, studente5));
-			Assegnazione assegnazione5 = DBManager.assI.create(new Assegnazione(elaborato6, studente6));
 			Assegnazione assegnazione6 = DBManager.assI.create(new Assegnazione(elaborato7, studente7));
 			Assegnazione assegnazione7 = DBManager.assI.create(new Assegnazione(elaborato8, studente8));
 			Assegnazione assegnazione8 = DBManager.assI.create(new Assegnazione(elaborato9, studente9));
-			Assegnazione assegnazione9 = DBManager.assI.create(new Assegnazione(elaborato10, studente10));
-			Assegnazione assegnazione10 = DBManager.assI.create(new Assegnazione(elaborato11, studente11));
-			Assegnazione assegnazione11 = DBManager.assI.create(new Assegnazione(elaborato12, studente12));
 			
 			ArrayList<Integer> scelte = new ArrayList<Integer>();
 			ArrayList<Boolean> accetta = new ArrayList<Boolean>();
 			scelte.add(1);
 			accetta.add(false);
-			Assegnazione assegnazione = gestoreElab.stubSimulateAssegnazione(studente1, scelte, accetta);
-			fail();
+			Assegnazione assegnazione = gestoreElab.richiestaAssegnazione(studente1);
+			gestoreElab.mostraElencoElaborati(docente);
+			gestoreElab.mostraElencoElaboratiAssegnati(docente);
 		} catch(ElementoInvalido | FailException e) {
 			e.printStackTrace();
 			fail();
 		} catch(RichiestaRespinta rr) {
-			
+			System.out.println("Richiesta Respinta.\n");
 		}
 	}
 

@@ -19,7 +19,8 @@ public class GestioneElaborati {
 	public void mostraElencoElaborati(Docente docente){
 		try {
 			ArrayList<Elaborato> elencoElab = DBManager.elabI.readAll(docente);
-			System.out.println("Elenco Elaborati Docente id " + docente.getMatDocente() + ":\n" + elencoElab);
+			System.out.println("Elenco Elaborati Docente id " + docente.getMatDocente() + ":\n");
+			Utility.printList(elencoElab);
 		} catch (ElementoInvalido e) {
 			e.printStackTrace();
 			System.out.println("Nessun Elaborato a causa di un errore.\n");
@@ -29,7 +30,8 @@ public class GestioneElaborati {
 	public void mostraElencoElaboratiAssegnati(Docente docente){
 		try {
 			ArrayList<Elaborato> elencoElabAss = DBManager.elabI.readAllAssegnati(docente);
-			System.out.println("Elenco Elaborati Assegnati Docente id " + docente.getMatDocente() + ":\n" + elencoElabAss);
+			System.out.println("Elenco Elaborati Assegnati Docente id " + docente.getMatDocente() + ":\n");
+			Utility.printList(elencoElabAss);
 		} catch (ElementoInvalido e) {
 			e.printStackTrace();
 			System.out.println("Nessun Elaborato a causa di un errore.\n");
@@ -39,7 +41,8 @@ public class GestioneElaborati {
 	public void mostraElencoElaboratiDisponibili(){
 		try {
 			ArrayList<Elaborato> elencoElabD = DBManager.elabI.readAllDisponibili();
-			System.out.println("Elenco Elaborati Disponibili:\n" + elencoElabD);
+			System.out.println("Elenco Elaborati Disponibili:\n");
+			Utility.printList(elencoElabD);
 		} catch (ElementoInvalido e) {
 			e.printStackTrace();
 			System.out.println("Nessun elaborato a causa di un errore.\n");
