@@ -428,37 +428,9 @@ public class TestCases {
 		}
 	}
 	
-	
-	@Test
-	// E:1 - P:1 - S:A - A:A - STD:NANR - CFU:<0
-	public void test12StubSimulateAssegazione() {
-		//Popolazione Database
-		try {
-			Studente studente = DBManager.studI.create(new Studente(1, -1, "Nome", "Cognome"));
-			Docente docente = DBManager.docI.read(1);
-			Elaborato elaborato = DBManager.elabI.create(new Elaborato(1, "Insegnamento", docente));
-			//Grep again from DB
-			
-			ArrayList<Integer> scelte = new ArrayList<Integer>();
-			ArrayList<Boolean> accetta = new ArrayList<Boolean>();
-			scelte.add(1);
-			accetta.add(true);
-			Assegnazione assegnazione = gElab.stubSimulateAssegnazione(studente, scelte, accetta);
-			studente = DBManager.studI.read(1);
-			elaborato = DBManager.elabI.read(1);
-			Assegnazione assegnazioneToTest = new Assegnazione(elaborato, studente);
-			fail();
-		} catch(FailException | ElementoInesistente | RichiestaRespinta e) {
-			e.printStackTrace();
-			fail();
-		} catch(ElementoInvalido ee) {
-			
-		}
-	}
-	
 	@Test
 	// E:1 - P:1 - S:A - A:A - STD:NANR - CFU:>100
-	public void test13StubSimulateAssegazione() {
+	public void test12StubSimulateAssegazione() {
 		//Popolazione Database
 		try {
 			Studente studente = DBManager.studI.create(new Studente(1, 1, "Nome", "Cognome"));
